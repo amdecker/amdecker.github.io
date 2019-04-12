@@ -188,7 +188,7 @@ async function copyFileStructure(fileStructure, topParentFolder)
 
     var i = 0 
     
-    var copyFolder = await createFile("Copy of " + (await getFile(topParentFolder).result.name, "root") // the folder that all the new copies will be placed in
+    var copyFolder = await createFile("Copy of " + (await getFile(topParentFolder)).result.name, "root") // the folder that all the new copies will be placed in
     
     var originalAndCopyFolder = {} // in form of {original: copied version} for all folders
     originalAndCopyFolder[topParentFolder] = copyFolder.result.id
