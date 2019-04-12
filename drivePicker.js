@@ -79,6 +79,7 @@ https://developers.google.com/drive/api/v3/picker
       if (data.action == google.picker.Action.PICKED) {
         var fileId = data.docs[0].id;
         copy(fileId)
+        
         //alert('The user selected: ' + fileId);
       }
     }
