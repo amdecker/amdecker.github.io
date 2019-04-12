@@ -26,6 +26,8 @@ https://developers.google.com/drive/api/v3/picker
 
     // Use the Google API Loader script to load the google.picker script.
     function loadPicker() {
+        document.getElementById('operation').innerHTML = ''
+        document.getElementById('progress').innerHTML = '';
       gapi.load('auth', {'callback': onAuthApiLoad});
       gapi.load('picker', {'callback': onPickerApiLoad});
     }
