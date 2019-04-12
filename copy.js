@@ -1,3 +1,11 @@
+/*
+ Up to around line 105 the code is with some modifications from https://developers.google.com/drive/api/v3/quickstart/js
+ @author Amos Decker
+ 
+ This the second part of the code after the google stuff allows users to find all files in a certain parent folder and then copy all the files while maintaining the original file structure
+*/
+
+
 totalNumFiles = 0 // this is used to update the progress bar in canvas.js
 
 var folderMimeType = "application/vnd.google-apps.folder"
@@ -54,11 +62,6 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none'
         signoutButton.style.display = 'inline-block'
-        //listFiles()
-        //getFolders()
-        //doStuff()
-        
-        //f()
     } else {
         authorizeButton.style.display = 'inline-block'
         signoutButton.style.display = 'none'
@@ -100,24 +103,26 @@ function appendPre(message) {
 }
 //----------
 // NOTE: above this point the code is mostly from google's quickstart with some small modifications https://developers.google.com/drive/api/v3/quickstart/js
-//
 //----------
 
-
-// var fileStructure = {}
-// list files in parent folder - add to fileStructure
 var getFile = function(id)
+/* to use do var file = await getFile(<FILE-ID>)
+then you can do file.result.id or .result.name etc
+
+This will give back a file and you can access its id, name, parents, and mimeType
+
+mimeType is what type of document (or if it is a folder) it is*/
 {
     return new Promise( 
         function(resolve, reject)
-        {
-            
+        { 
             resolve(gapi.client.request({"path":"drive/v3/files/" + id, "method":"GET", "params":{"fileId": id, "fields":"id, name, parents, mimeType"}}))
 
         })
 }
 
 var createFile = function(name, parent)
+/* creates a file with a certain name and parent */
 {
     var body = {"name":name, "mimeType": folderMimeType, "parents":[parent], "fields":"id"}
     return new Promise(
@@ -129,9 +134,10 @@ var createFile = function(name, parent)
 
 
 var copyFile = function(id, parent, name)
+/* copies a file with given id and places it in given parent folder with given name */
 {
     var parameters = {"id": id}
-    var body = {"parents": [parent], "name":name}//{"name":name, "mimeType": folderMimeType, "parents":[parent], "fields":"id"}
+    var body = {"parents": [parent], "name":name}
     return new Promise(
     function(resolve, reject)
     {
@@ -141,6 +147,7 @@ var copyFile = function(id, parent, name)
 
 
 var listFiles = function(folderId, nextPageToken)
+/* Given a folderId, it finds up to 500 files. If there are more than 500 files, there will be multiple pages of results, so you can call this again giving it nextPageToken. The first time running this you can leave nextPageToken as "". If there is no folderId given, it will just return files from a variety of folders  */
 {
     return new Promise(
     function(resolve, reject)
@@ -153,7 +160,7 @@ var listFiles = function(folderId, nextPageToken)
         {
             parameters["q"] = "'" + folderId + "' in parents" // certain folder in each item's parents list
         }
-        
+        // if there are mult pages of results and the nextPageToken is given, then look in the new page of results
         if (nextPageToken)
         {
             parameters["pageToken"] = nextPageToken
@@ -173,13 +180,14 @@ async function copyFileStructure(fileStructure, topParentFolder)
 
     var allFolders = Object.keys(fileStructure)
     var foldersToCopy = [topParentFolder]
-    var numFoldersCopied = 0
-    var numFilesCopied = 0
+    var numFoldersCopied = 0 // just keeps track of num new folders created (aka copied)
+    var numFilesCopied = 0 // keeps track of total num of files and folders copied
     
+    // update UI
     document.getElementById("progress").innerHTML = numFilesCopied + "/" + totalNumFiles + " files copied"
 
-    var i = 0
-    var copyFolder = await createFile("COPIES", "root")
+    var i = 0 
+    var copyFolder = await createFile("COPIES", "root") // the folder that all the new copies will be placed in
     
     var originalAndCopyFolder = {} // in form of {original: copied version} for all folders
     originalAndCopyFolder[topParentFolder] = copyFolder.result.id
@@ -191,12 +199,16 @@ async function copyFileStructure(fileStructure, topParentFolder)
     {
         var itemsToCopy = fileStructure[foldersToCopy[i]] // gets id of the file/folder dealing with at moment
         if (!itemsToCopy){break}
+        
+        // for each item in this folder
         for (var f = 0; f < itemsToCopy.length; f++)
         {
             var fileToCopy = (await getFile(itemsToCopy[f])).result // original file
             console.log(fileToCopy)
-            var newParent = originalAndCopyFolder[fileToCopy.parents[0]] // get copied counterpart parent
-            // if it is a folder, make a new folder
+            
+            var newParent = originalAndCopyFolder[fileToCopy.parents[0]] // get copied counterpart parent where the copied file/folder will be placed
+            
+            // if it is a folder, make a new folder with the same name (you can't make copies of folders – you have to make a new folder)
             if (fileToCopy.mimeType == folderMimeType)
             {
                 foldersToCopy = foldersToCopy.concat(itemsToCopy[f]) // since the current file is a folder, it is added to the list of folders that need to go though to copy all files
@@ -211,29 +223,32 @@ async function copyFileStructure(fileStructure, topParentFolder)
             numFilesCopied++
             console.log(numFilesCopied + "/" + totalNumFiles)
             
+            // update UI/canvas
             document.getElementById("progress").innerHTML = numFilesCopied + "/" + totalNumFiles + " files copied"
             showProgress(numFilesCopied / totalNumFiles)
         }
         i++
     }
-    console.log("COPIED")
-    showDone()
+    console.log("DONE. COPIED")
+    showDone() // update canvas
 }
 
 async function copy(topParentFolder)
+/* Does all the processes needed to copy stuff in a folder. It first finds all the files in the topParentFolder then it structures them with files that have the same parent grouped together. Then it calls copyFileStructure which does the actual copying */
 {
     totalNumFiles = 0 // reset counter every time new set of files is copied - allows user to select another folder after the previous one has been copied
     var folderMimeType = "application/vnd.google-apps.folder"
 
-    //var  = "1dUeiqraAvrVktFoo0MWoBnYuPe7QrATS"
     var fileStructure = {}
     fileStructure[topParentFolder] = []
-    
     console.log(fileStructure)
+    
     var foldersSearched = []
     
     var haveAllFiles = false
-    document.getElementById("operation").innerHTML = "Gathering Files..."
+    document.getElementById("operation").innerHTML = "Gathering Files..." // update UI
+    
+    // FIND ALL THE FILES
     while(!haveAllFiles)
     {
         // get a folder to search
@@ -256,7 +271,7 @@ async function copy(topParentFolder)
             break
         }
         
-        //LIST ALL FILES in that folder
+        // GET ALL FILES in that folder
         var listPromise = await listFiles(folderToSearch)
         var nextPageToken = "sjhldf"
         var allFiles = []
@@ -264,13 +279,11 @@ async function copy(topParentFolder)
         while (nextPageToken != listPromise.result.nextPageToken && nextPageToken)
         {
             nextPageToken = listPromise.result.nextPageToken
-            //console.log(nextPageToken)
             allFiles = allFiles.concat(listPromise.result.files)
             totalNumFiles += listPromise.result.files.length
-            document.getElementById("progress").innerHTML = totalNumFiles + " files found"
+            document.getElementById("progress").innerHTML = totalNumFiles + " files found" // update UI
             listPromise = await listFiles(folderToSearch, nextPageToken)
         }
-        //console.log(allFiles)
         
         // ADD the files to the file system
         // filesystem is structured like this: {'a':[1, 2, 'b'], 'b':[3, 4]} where the letters are folders and the numbers are files
@@ -279,7 +292,7 @@ async function copy(topParentFolder)
         {
             fileStructure[folderToSearch] = fileStructure[folderToSearch].concat(allFiles[i].id)
 
-            // if it is a folder, add value: {} for key: id
+            // if it is a folder, add value: [] for key: id
             if (allFiles[i].mimeType == folderMimeType)
             {
                 fileStructure[allFiles[i].id] = []
@@ -287,10 +300,8 @@ async function copy(topParentFolder)
         }
         
         foldersSearched = foldersSearched.concat(folderToSearch)
-         
     }
     console.log(fileStructure)
     copyFileStructure(fileStructure, topParentFolder)
-
 }
 
