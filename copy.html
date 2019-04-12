@@ -18,6 +18,7 @@
     </head>
 
     <body style="margin:0px;">
+<!--        this pre is for showing errors-->
         <pre id="content" style="white-space: pre-wrap;"></pre>
 
         <div style="font-family:Trebuchet MS; position:absolute; top:50%; left:50%; background-color:white; transform: translate(-50%, -50%); box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding:1%"> 
@@ -33,7 +34,7 @@
             <span class="icon-button" title="sign out of Google account" id="signout_button" style="display: none"><i class="fas fa-sign-out-alt"></i> Sign Out</span>
             
             <br><br>
-            <span class="icon-button" onclick="loadPicker()" title="choose a folder you want to copy"><i class="fas fa-folder-open"></i> Select Folder</span>
+            <span class="icon-button" onclick="clearCanvas(); loadPicker()" title="choose a folder you want to copy"><i class="fas fa-folder-open"></i> Select Folder</span>
             <br><br><hr><br>
             <span id="operation"></span>
             <br>

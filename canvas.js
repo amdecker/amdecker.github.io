@@ -22,7 +22,7 @@ var ctx = canvas.getContext("2d");
 function showProgress(percentage)
 /* the percentage is between 0 and 1.  */
 {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    clearCanvas()
     ctx.fillStyle = "blue"
     ctx.fillRect(0, 0, canvas.width, percentage * canvas.height)
 }
@@ -31,11 +31,16 @@ function showDone()
 /* Displays a green check showing that the process is complete */
 {
     console.log("SHOWING DONE")
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    clearCanvas()
     ctx.fillStyle = "green"
     ctx.fillRect(0, 0, canvas.width, canvas.height)//    var img = new Image();
 //    img.onload = function () {ctx.drawImage(img, 0, 0)}
 //    img.src = "images/ok.png";
+}
+
+function clearCanvas()
+{
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
 
 

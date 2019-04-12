@@ -69,6 +69,10 @@ function updateSigninStatus(isSignedIn) {
  *  Sign in the user upon button click.
  */
 function handleAuthClick(event) {
+    document.getElementById("operation").innerHTML = ""
+    document.getElementById("progress").innerHTML = ""
+    clearCanvas()
+    
     gapi.auth2.getAuthInstance().signIn()
 }
 
@@ -76,6 +80,10 @@ function handleAuthClick(event) {
  *  Sign out the user upon button click.
  */
 function handleSignoutClick(event) {
+    document.getElementById("operation").innerHTML = ""
+    document.getElementById("progress").innerHTML = ""
+    clearCanvas()
+    
     gapi.auth2.getAuthInstance().signOut()
 }
 
