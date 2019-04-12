@@ -18,6 +18,8 @@
     </head>
 
     <body style="margin:0px;">
+        <script src="canvas.js"></script>
+
 <!--        this pre is for showing errors-->
         <pre id="content" style="white-space: pre-wrap;"></pre>
 
@@ -34,7 +36,7 @@
             <span class="icon-button" title="sign out of Google account" id="signout_button" style="display: none"><i class="fas fa-sign-out-alt"></i> Sign Out</span>
             
             <br><br>
-            <span class="icon-button" onclick="clearCanvas(); loadPicker()" title="choose a folder you want to copy"><i class="fas fa-folder-open"></i> Select Folder</span>
+            <span class="icon-button" onclick="clearCanvas(); loadPicker();" title="choose a folder you want to copy"><i class="fas fa-folder-open"></i> Select Folder</span>
             <br><br><hr><br>
             <span id="operation"></span>
             <br>
@@ -45,7 +47,6 @@
 
         <canvas id="loading-canvas" style="width:100%; height:100%; background-color:white; position:absolute; top:0px; z-index:-1"></canvas>
         
-        <script src="canvas.js"></script>
         <script src="copy.js"></script>
         <script src="drivePicker.js"></script>
 
