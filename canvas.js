@@ -15,7 +15,7 @@ function showProgress(percentage)
 /* given the percentage is between 0 and 1, it fills the screen from top down with blue */
 {
     clearCanvas()
-    ctx.fillStyle = "blue"
+    ctx.fillStyle = "#4285F4"
     ctx.fillRect(0, 0, canvas.width, percentage * canvas.height)
 }
 
@@ -25,7 +25,7 @@ function showDone()
 {
     console.log("SHOWING DONE")
     clearCanvas()
-    ctx.fillStyle = "green"
+    ctx.fillStyle = "#0F9D58"
     ctx.fillRect(0, 0, canvas.width, canvas.height)//    var img = new Image();
 }
 
