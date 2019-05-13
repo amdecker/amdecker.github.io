@@ -122,9 +122,10 @@ mimeType is what type of document (or if it is a folder) it is*/
 }
 
 var createFile = function(name, parent)
-/* creates a file with a certain name and parent */
+/* creates a folder with a certain name and parent */
 {
     var body = {"name":name, "mimeType": folderMimeType, "parents":[parent], "fields":"id"}
+    console.log("PARENT: " + parent)
     return new Promise(
     function(resolve, reject)
     {
@@ -142,6 +143,7 @@ var copyFile = function(id, parent, name)
     function(resolve, reject)
     {
         resolve(gapi.client.request({"path":"drive/v3/files/" + id + "/copy", "method":"POST", "body":body, "params":parameters}))
+        reject("File Not Copied: " + id)
     })
 }
 
@@ -154,7 +156,7 @@ var listFiles = function(folderId, nextPageToken)
     {
         
         parameters = {"pageSize": 500,
-                    "fields": "nextPageToken, files(id, name, mimeType, parents)"}
+                    "fields": "nextPageToken, files(id, name, mimeType, parents, trashed)"}
         // if a folder is given, search within that folder
         if (folderId)
         {
@@ -207,8 +209,12 @@ async function copyFileStructure(fileStructure, topParentFolder)
             var fileToCopy = (await getFile(itemsToCopy[f])).result // original file
             console.log(fileToCopy)
             
-            var newParent = originalAndCopyFolder[fileToCopy.parents[0]] // get copied counterpart parent where the copied file/folder will be placed
-            
+            // get the right parent that matches what I have in originalAndCopyFolder
+            for(var x = 0; x < fileToCopy.parents.length; x++)
+            {
+                var newParent = originalAndCopyFolder[fileToCopy.parents[x]] // get copied counterpart parent where the copied file/folder will be placed
+                if(newParent){break}
+            }
             // if it is a folder, make a new folder with the same name (you can't make copies of folders – you have to make a new folder)
             if (fileToCopy.mimeType == folderMimeType)
             {
@@ -219,7 +225,15 @@ async function copyFileStructure(fileStructure, topParentFolder)
             // if it is a file, copy the file
             else
             {
-                await copyFile(itemsToCopy[f], newParent, fileToCopy.name)
+                try
+                {
+                    await copyFile(itemsToCopy[f], newParent, fileToCopy.name)
+                }
+                catch(e)
+                {
+                    console.log("Could not copy: " + fileToCopy.name + ", id: " + itemsToCopy[f])
+                    appendPre("Could not copy: " + fileToCopy.name + ", id: " + itemsToCopy[f])
+                }
             }
             numFilesCopied++
             console.log(numFilesCopied + "/" + totalNumFiles)
@@ -291,6 +305,13 @@ async function copy(topParentFolder)
         fileStructure[folderToSearch] = []
         for (var i = 0; i < allFiles.length; i++)
         {
+            console.log("TRASHED: " + allFiles[i].trashed)
+            if(allFiles[i].trashed)
+            {
+                totalNumFiles -= 1
+                continue
+            }
+
             fileStructure[folderToSearch] = fileStructure[folderToSearch].concat(allFiles[i].id)
 
             // if it is a folder, add value: [] for key: id

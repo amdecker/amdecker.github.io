@@ -27,6 +27,7 @@ function showDone()
     clearCanvas()
     ctx.fillStyle = "#0F9D58"
     ctx.fillRect(0, 0, canvas.width, canvas.height)//    var img = new Image();
+    document.getElementById("progress").innerHTML = "DONE"
 }
 
 
