@@ -1,12 +1,59 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en-US">
+    <head>
+        <title>Drive Copy</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Amos Decker">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
+        <style>
+            .icon-button:hover
+            {
+                cursor: pointer;
+                color: #4285F4;
+            }
+        </style>
+    </head>
 
-<h2>Redirect to a Webpage</h2>
-  
-<script>
-  location.replace("https://amdecker.github.io/")
-</script>
+    <body style="margin:0px;">
 
-</body>
-</html> 
+<!--        this pre is for showing errors-->
+        <pre id="content" style="white-space: pre-wrap;"></pre>
+
+<!--        Center block with info and buttons-->
+        <div style="font-family:Trebuchet MS; position:absolute; top:50%; left:50%; background-color:white; transform: translate(-50%, -50%); box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); padding:1%"> 
+            <center>
+            <br>
+            <span title="created by Amos Decker">Drive Copy</span>
+            <br><br>
+            <hr>
+            <br>
+            <!--buttons to initiate auth sequence and sign out-->
+            <span class="icon-button" style="display:none;" id="authorize_button" title="Please log in to your Google account"><i style="font-size:1em;" class="material-icons" >account_circle</i> Log In<br></span>
+            <span class="icon-button" title="sign out of Google account" id="signout_button" style="display: none"><i class="fas fa-sign-out-alt"></i> Sign Out</span>
+            
+            <br><br>
+            <span class="icon-button" onclick="clearCanvas(); loadPicker();" title="choose a folder you want to copy"><i class="fas fa-folder-open"></i> Select Folder</span>
+            <br><br><hr><br>
+            <span id="operation"></span>
+            <br>
+            <span id="progress"></span>
+            <br>
+            </center>
+        </div>
+
+<!--        canvas that covers entire screen shows progress-->
+        <canvas id="loading-canvas" style="width:100%; height:100%; background-color:white; position:absolute; top:0px; z-index:-1"></canvas>
+        
+        <script src="canvas.js"></script>
+        <script src="copy.js"></script>
+        <script src="drivePicker.js"></script>
+
+
+    <!--    This script shows the authorize/sign out buttons once the page has loaded. It also initializes all the google stuff-->
+        <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){}; handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+        </script>
+    </body>
+
+</html>
