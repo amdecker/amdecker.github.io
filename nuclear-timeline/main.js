@@ -25,6 +25,7 @@ document.addEventListener('click', function (event) {
     {
         var currentInfoCard = document.getElementById("info-box")
         document.getElementById("info-frame").setAttribute("data-cardtype", "info")
+        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view sources"
         var currentYear = Number(clickedElement.getAttribute("year"))
         var itemNum = Number(clickedElement.getAttribute("item"))
         var haveNewEvent = false
@@ -52,7 +53,7 @@ document.addEventListener('click', function (event) {
     {
         console.log("HERE")
         document.getElementById("info-frame").setAttribute("data-cardtype", "info")
-
+        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view sources"
         var currentInfoCard = document.getElementById("info-box")
         var currentYear = Number(clickedElement.getAttribute("year"))
         var itemNum = Number(clickedElement.getAttribute("item"))
