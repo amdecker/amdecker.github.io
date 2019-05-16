@@ -1,0 +1,166 @@
+.hover:hover
+{
+    cursor: pointer;
+}
+
+#body
+{
+    background-color:rgb(52, 58, 64);
+}
+
+.red-hover:hover
+{
+    cursor:pointer;
+    color:red;    
+}
+
+.graph
+{
+    height:2em;
+    position:relative;
+}
+
+.graph:hover
+/*makes shadow on the left and right sides of the graph. Since they all go the edge of the screen, 
+the graph on the left only seems to have shadow on the right & vice versa
+
+changes the z-index so that the shadow will always be visible when hovering over*/
+{
+    box-shadow: 5px -1px 0px rgba(255, 255, 255, 0.4), -5px 0px 0px rgba(255, 255, 255, 0.4);
+    z-index:100;
+}
+
+/* The animation code */
+@keyframes flip1 
+{
+    0% {transform: rotateY(0deg);}
+    100% {transform: rotateY(90deg);}
+}
+
+@keyframes flip2
+/* second part of animation. If the z-index is not higher than the others, than for part of the animation the element will be behind other elements. And I don't want that */
+{
+    0% {transform: rotateY(90deg); z-index:300;} 
+    100% {transform: rotateY(0deg); z-index:300;}
+}
+
+.flip
+{
+    width: 50px;
+    height: 50px;
+    background-color: grey;
+}
+
+
+.cool-shadow
+{
+     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.vertical-center 
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.horizontal-center
+{
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.year-dropdown
+{
+    display:inline-block; 
+    position:absolute; 
+/*    top:0.5em; */
+    left:45%; 
+    width:10%; 
+    text-align: center;
+    height:2em;
+    background-color:rgb(52, 58, 64);
+    color:white;
+    /*z-index:-10;*/
+    /*opacity:.5;*/
+
+}
+
+
+/* this gets rid of the arrow after the text in a dropdown menu. I found this solution at https://stackoverflow.com/questions/38576503/how-to-remove-the-arrow-in-dropdown-in-bootstrap-4 */
+.dropdown-toggle::after {
+    display:none !important;
+}
+
+.year-row
+{
+    display:inline-block; 
+    width:100%; 
+    position:relative; 
+    font-family:monaco;
+}
+
+
+
+/* THE GRAPHS */
+.num-missiles
+{
+    width:45%; 
+    position:absolute; 
+    left:0px; 
+    display:inline-block;
+}
+
+.num-tests
+{
+    width:45%; 
+    position:absolute; 
+    right:0px; 
+    display:inline-block;
+}
+
+.USSR-graph
+{
+    width:50%;
+    z-index:-1;
+
+    height:2em; 
+    background-color:red; 
+    display:inline-block; 
+    position:absolute; 
+
+}
+
+.US-graph
+{
+    width:90%; 
+    z-index:-2;
+
+    height:2em; 
+    background-color:blue; 
+    display:inline-block; 
+    position:absolute; 
+}
+
+.num-missiles .USSR-graph
+{
+    right:0ch; 
+}
+
+.num-missiles .US-graph
+{
+    right:0ch;
+}
+
+.num-tests .USSR-graph
+{
+    left:0px;
+}
+
+.num-tests .US-graph
+{
+    left:0px;
+}
