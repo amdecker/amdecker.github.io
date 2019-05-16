@@ -25,7 +25,7 @@ document.addEventListener('click', function (event) {
     {
         var currentInfoCard = document.getElementById("info-box")
         document.getElementById("info-frame").setAttribute("data-cardtype", "info")
-        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view sources"
+        document.getElementById("show-sources-instructions").innerHTML = "Click here to view sources"
         var currentYear = Number(clickedElement.getAttribute("year"))
         var itemNum = Number(clickedElement.getAttribute("item"))
         var haveNewEvent = false
@@ -53,7 +53,7 @@ document.addEventListener('click', function (event) {
     {
         console.log("HERE")
         document.getElementById("info-frame").setAttribute("data-cardtype", "info")
-        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view sources"
+        document.getElementById("show-sources-instructions").innerHTML = "Click here to view sources"
         var currentInfoCard = document.getElementById("info-box")
         var currentYear = Number(clickedElement.getAttribute("year"))
         var itemNum = Number(clickedElement.getAttribute("item"))
@@ -133,11 +133,11 @@ async function doFlip(element)
     // swap instructions telling user to click to see info/sources
     if (document.getElementById("info-frame").getAttribute("data-cardtype") == "info")
     {
-        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view sources"
+        document.getElementById("show-sources-instructions").innerHTML = "Click here to view sources"
     }
     else
     {
-        document.getElementById("show-sources-instructions").innerHTML = "Click outer edge to view info"
+        document.getElementById("show-sources-instructions").innerHTML = "Click here to view info"
     }
     
     var x = await wait(animationTimeMS / 2 - animationTimeMS * .1)
