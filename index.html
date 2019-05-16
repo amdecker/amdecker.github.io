@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html>
-	<body>
-		<h2>Redirecting...</h2>
+<html lang="en-US">
+    <head>
+        <title>USSR Nuclear Timeline</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Amos Decker">
+        <link rel="stylesheet" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-		<script>
-		  location.replace("https://amdecker.github.io/copy")
-		</script>
-	</body>
+        <style>
+            #info-frame
+            {
+                position:absolute; 
+                top:15%; 
+                left:5%;
+                width:90%;
+                height:80%;
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    
+    <body id="body" style="padding:0px; margin:0px;">
+        <center style="font-family:Trebuchet MS">
+            <br>
+            <h1 style="color:red; font-family:times">USSR Nuclear Timeline</h1>
+            <br>
+            <hr style="width:50vw; background:white">
+            <br>
+            <h5 style="color:#F2F4F3; position:absolute; left:15vw;">Number of Warheads</h5>
+            <h5 style="color:#F2F4F3; position:absolute; right:15vw;">Number of Nuclear Tests</h5>
+            <br><br>
+        </center>
+
+        <script src="graph.js"></script>
+        <script src="main.js"></script>
+        <script>
+            // tooltip
+            $(document).ready(function()
+            {
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+        </script>
+
+        <div id="info-box" class="cool-shadow flip hover" style="font-family:Trebuchet MS; padding:1%; background-color:white; position:fixed; top:15vh; right: 25%; width:50%; height:70vh; z-index:1; display:none;">
+            <iframe id="info-frame" data-cardtype="info" id="example" src="information/template/info.html"></iframe>
+            <span id="x" class="red-hover" title="close" onclick="closeInfo(this)" style="position:absolute; right:5%; top:5%;"><i class="material-icons">close</i></span>
+            <span id="show-sources-instructions" style="font-size:.7em; position:absolute; top:5%; left:5%;">Click here to view sources</span>
+            <span year="" item="" title="next" class="red-hover" style="position:absolute; right:1%; top:50%;"><i class="material-icons" id="next-arrow">chevron_right</i></span>
+            <span year="" item="" title="previous" class="red-hover" style="position:absolute; left:1%; top:50%;"><i class="material-icons" id="prev-arrow">chevron_left</i></span>
+        </div>
+
+
+        <br><br>
+
+        <center>
+            <hr style="color:white; background: white; width:90vw;">
+            <span style="color:#F2F4F3; font-family:times">
+                Data about nuclear warheads and tests from <a href="https://ourworldindata.org/nuclear-weapons">https://ourworldindata.org/nuclear-weapons</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbspFor an animation of every nuclear explosion, check out <a href="https://youtu.be/LLCF7vPanrY">https://youtu.be/LLCF7vPanrY</a>
+                <br>
+                Created by <a href="https://amdecker.github.io">Amos Decker</a>&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp2018/19 independent study with John Berkay and Melissa Carr
+                <br>
+                </span>
+        </center>
+        
+        
+    </body>
 </html>
