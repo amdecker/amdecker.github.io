@@ -115,15 +115,20 @@ async function doFlip(element)
     // CHANGE from info to source and vice versa
     console.log(element.children[0].getAttribute("data-cardtype"))
     console.log(element.children[0].getAttribute("data-cardtype") == "info")
-    console.log("KSLDJFKLS")
+    console.log("CARD TYPE:")
     var currentFilePath = element.children[0].src
+    console.log(element.children[0].getAttribute("data-cardtype"))
     if (element.children[0].getAttribute("data-cardtype") == "info")
     {
-        element.children[0].outerHTML = '<iframe id="info-frame" data-cardtype="sources" id="content-0" src=' + currentFilePath.replace("info.html", "sources.html") + '></iframe>'
+        element.children[0].setAttribute("data-cardtype", "sources")
+        element.children[0].setAttribute("src", currentFilePath.replace("info.html", "sources.html"))
+        //element.children[0].outerHTML = '<iframe id="info-frame" data-cardtype="sources" id="content-0" src=' + currentFilePath.replace("info.html", "sources.html") + '></iframe>'
     }
     else
     {
-        element.children[0].outerHTML = '<iframe id="info-frame" data-cardtype="info" id="content-0" src=' + currentFilePath.replace("sources.html", "info.html") + '></iframe>'
+        element.children[0].setAttribute("data-cardtype", "info")
+        element.children[0].setAttribute("src", currentFilePath.replace("sources.html", "info.html"))
+        //element.children[0].outerHTML = '<iframe id="info-frame" data-cardtype="info" id="content-0" src=' + currentFilePath.replace("sources.html", "info.html") + '></iframe>'
     }
     // FLIP other 1/2
     element.style.animationFillMode = "forwards"
@@ -166,8 +171,8 @@ function showInfoCard(year, event)
     var infoBox = document.getElementById("info-box")
     infoBox.style.display = "block"
     
-    
-    document.getElementById("info-frame").src= "information/" + year + "/" + event + "/info.html"
+    document.getElementById("info-frame").setAttribute("data-cardtype", "info")
+    document.getElementById("info-frame").src = "information/" + year + "/" + event + "/info.html"
     
     var itemNum = null
     for(var ev in events)
