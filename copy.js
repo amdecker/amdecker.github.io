@@ -11,8 +11,8 @@ totalNumFiles = 0 // this is used to update the progress bar in canvas.js
 var folderMimeType = "application/vnd.google-apps.folder"
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '237599765078-ssmn8r7clt73egves3l9j02678e8j03h.apps.googleusercontent.com'
-var API_KEY = 'AIzaSyABa-nvknSIyXkY28Oj3zjSSEsntvxD9Jw'
+var CLIENT_ID = '753831415791-me310kdockel4ccqh2rsovn0hu1l7icn.apps.googleusercontent.com'
+var API_KEY = 'AIzaSyDu_CtLIqGlFxOs4h2hKfwJBXk4hjrmuAY'
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"]
