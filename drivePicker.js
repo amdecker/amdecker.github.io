@@ -9,10 +9,10 @@ https://developers.google.com/drive/api/v3/picker
 **/
     // The Browser API key obtained from the Google API Console.
     // Replace with your own Browser API key, or your own key.
-    var developerKey = 'AIzaSyABa-nvknSIyXkY28Oj3zjSSEsntvxD9Jw';
+    var developerKey = 'AIzaSyDu_CtLIqGlFxOs4h2hKfwJBXk4hjrmuAY';
 
     // The Client ID obtained from the Google API Console. Replace with your own Client ID.
-    var clientId = "237599765078-ssmn8r7clt73egves3l9j02678e8j03h.apps.googleusercontent.com"
+    var clientId = "753831415791-me310kdockel4ccqh2rsovn0hu1l7icn.apps.googleusercontent.com"
 
     // Replace with your own project number from console.developers.google.com.
     // See "Project number" under "IAM & Admin" > "Settings"
