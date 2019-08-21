@@ -64,9 +64,9 @@ html
 
 #nav-bar
 {
-	margin-bottom:25vh; /* this is how much it pokes above the background parallax image */
+	margin-bottom:25vmin; /* this is how much it pokes above the background parallax image */
 	position:sticky;
-	top:15vh; /* this is how much there will be at the top when it is scrolled down */
+	top:15vmin; /* this is how much there will be at the top when it is scrolled down */
 }
 
 
@@ -199,33 +199,33 @@ html
 	font-size:2.5vmin; 
 	position:absolute; 
 	left:75vw; 
-	top:-13vh; 
+	top:-13vmin; 
 	width:15vw
 }
 
 #home
 {
-	position:absolute; top:-12vh; left:15vw;
+	position:absolute; top:-12vmin; left:15vw;
 }
 
 #contact
 {
-	position:absolute; top:-12vh; left:30vw;
+	position:absolute; top:-12vmin; left:30vw;
 }
 
 #faq
 {
-	position:absolute; top:-12vh; left:45vw;
+	position:absolute; top:-12vmin; left:45vw;
 }
 
 #registration
 {
-	position:absolute; top:-12vh; left:60vw;
+	position:absolute; top:-12vmin; left:60vw;
 }
 
 #snow-pile
 {
-	height:50vh; position:absolute; bottom:0px; z-index:0;
+	height:50vmin; position:absolute; bottom:0px; z-index:0;
 }
 
 #logo
@@ -235,7 +235,7 @@ html
 	/*height:20vmin; */
 	max-height: 20vmin;
 	position:absolute; 
-	top:-15vh
+	top:-15vmin
 }
 
 #footer
