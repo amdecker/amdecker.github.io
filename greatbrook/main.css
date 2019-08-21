@@ -188,9 +188,9 @@ html
 #nav-and-content
 {
 	position: relative;
-	left:10vw;
+	left:5vw;
 	z-index: 0; 
-	width:80vw; 
+	width:90vw; 
 	background-color:white; 
 	/*transform: translateX(10vw);*/
 }
