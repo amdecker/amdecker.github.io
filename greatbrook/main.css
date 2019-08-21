@@ -1,0 +1,246 @@
+/*
+author: Amos Decker;
+*/
+
+html
+{
+	scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 1000px) {
+    #looking-for {
+        display: none;
+    }
+}
+@media only screen and (max-width: 850px) {
+    #home {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #contact 
+    {
+        display: none;
+    }
+    #faq 
+    {
+        display: none;
+    }
+    #registration 
+    {
+        display: none;
+    }
+    #created-by-amos
+    {
+    	display:none;
+    }
+}
+
+
+#body
+{
+	background-color:lightgrey; margin:0px
+}
+
+.parallax
+/*
+    general properties of a parralax item
+*/
+{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+/* front image of snow*/
+#top
+{
+	background-image: url("front-snow.png");
+	width:100%;
+	height:100vh;
+}
+
+#nav-bar
+{
+	margin-bottom:25vh; /* this is how much it pokes above the background parallax image */
+	position:sticky;
+	top:15vh; /* this is how much there will be at the top when it is scrolled down */
+}
+
+
+/*
+    when hovering over a something like the logo, it increases in size a little bit
+*/
+.hover:hover
+{
+    transform: scale(1.02, 1.02);
+    cursor: pointer;
+}
+
+.vert-horiz-center
+/*
+    Aligns things both vertically and horizontally
+    found this solution at https://www.jakpsatweb.cz/css/css-vertical-center-solution.html
+*/
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.down-arrow
+{
+	animation-name: bounce-down;
+  	animation-duration: .5s;
+  	animation-iteration-count: 2;
+  	animation-delay: 1s;
+  	transition: transform .1s ease-in-out;
+}
+
+
+.down-arrow:hover
+{
+	transform: translateY(1vh);
+}
+
+@keyframes bounce-down
+{
+  0% {}
+  50% { transform: translateY(1vh);}
+  100% {}
+}
+
+.up-arrow
+{
+	animation-name: bounce-up;
+  	animation-duration: .5s;
+  	animation-iteration-count: 2;
+  	animation-delay: 1s;
+  	transition: transform .1s ease-in-out;
+}
+
+.up-arrow:hover
+{
+	transform: translateY(-1vh);
+}
+
+@keyframes bounce-up
+{
+  0% {}
+  50% { transform: translateY(-1vh);}
+  100% {}
+}
+
+.slide-up
+{
+	animation-name: slide-up;
+	animation-duration: 1s;
+}
+
+@keyframes slide-up
+{
+	0% 
+	{
+		opacity: 0;
+		transform: translateY(10vh);
+	}
+	50%
+	{
+		opacity: .5;
+	}
+	100% {}
+}
+
+.shadow
+{
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-link
+{
+	 width:10vw; 
+	 height:1.5em; 
+	 font-family:verdana; 
+	 font-size: 1em;
+	 border-bottom: 1px solid black;
+	 text-decoration: none;
+	 color:black;
+}
+
+/* when a link on the nav bar is hovered over it is the same style as when you are on that page */
+.nav-link:hover
+{
+	cursor:pointer;
+	border-bottom-color:#080087;
+	border-width: 2px;
+}
+
+.nav-link-selected
+{
+	cursor:pointer;
+	border-bottom-color:#080087;
+	border-width: 2px;
+}
+
+#nav-and-content
+{
+	position: relative;
+	left:10vw;
+	z-index: 0; 
+	width:80vw; 
+	background-color:white; 
+	/*transform: translateX(10vw);*/
+}
+
+#looking-for
+{
+	font-size:1em; 
+	position:absolute; 
+	left:75vw; 
+	top:-12vh; 
+	width:15vw
+}
+
+#home
+{
+	position:absolute; top:-12vh; left:15vw;
+}
+
+#contact
+{
+	position:absolute; top:-12vh; left:30vw;
+}
+
+#faq
+{
+	position:absolute; top:-12vh; left:45vw;
+}
+
+#registration
+{
+	position:absolute; top:-12vh; left:60vw;
+}
+
+#snow-pile
+{
+	height:50vh; position:absolute; bottom:0px; z-index:0;
+}
+
+#logo
+{
+	width:auto; height:20vmin; position:absolute; top:-15vh
+}
+
+#footer
+{
+	background-color:white;
+	min-height:2vh;
+}
+
+#looking-for-footer
+{
+	float:right;
+}
