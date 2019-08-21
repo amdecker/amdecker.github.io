@@ -32,14 +32,28 @@
 					<img id="logo" class=hover src="logo.png">
 				</a>
 
-				<a id="home" href="index.html#logo" class="vert-horiz-center nav-link nav-link-selected hover">Home</a>
-				<a id="contact" href="contact.html#logo" class="vert-horiz-center nav-link hover">Contact</a>
-				<a id="faq" href="faq.html#logo" class="vert-horiz-center nav-link hover">FAQ</a>
-				<a id="registration" href="registration.html#logo" class="vert-horiz-center nav-link hover">Registration</a>
+				<!-- This dropdown should only be visible when the screen width is small and the other nav bar items have disappeared -->
+				<div id="nav-bar-dropdown" class="dropdown nav-link">
+				  <div id="menu-text" class="vert-horiz-center">Menu</div>
+				  <div class="dropdown-content">
+				    <a href="contact.html#logo" class="indiv-dropdown-item">Contact</a>
+				    <a href="faq.html#logo" class="indiv-dropdown-item">FAQ</a>
+				    <a href="registration.html#logo" class="indiv-dropdown-item">Registration</a>
+				  </div>
+				</div> 
 
-				<span id="looking-for">
-					<i>Looking for <a href="http://www.greatbrookski.com/">Great Brook Ski Touring Center Site</a></i>
-				</span>
+				<!-- these are only visible when the screen is large, and as the screen gets smaller, some will not be visible -->
+				<div id="nav-bar-items">
+					<a id="home" href="index.html#logo" class="vert-horiz-center nav-link nav-link-selected hover">Home</a>
+					<a id="contact" href="contact.html#logo" class="vert-horiz-center nav-link hover">Contact</a>
+					<a id="faq" href="faq.html#logo" class="vert-horiz-center nav-link hover">FAQ</a>
+					<a id="registration" href="registration.html#logo" class="vert-horiz-center nav-link hover">Registration</a>
+
+					<span id="looking-for">
+						<i>Looking for <a href="http://www.greatbrookski.com/">Great Brook Ski Touring Center Site</a></i>
+					</span>
+				</div>
+
 			</div>
 
 			<div style="width:100%; position:absolute; left:0px; bottom:27vmin; font-family:verdana; font-size:5.3vmin; ">
