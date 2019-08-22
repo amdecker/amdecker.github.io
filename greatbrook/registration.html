@@ -2,52 +2,92 @@
 <html lang="en-US">
 <head>
 	<meta name="author" content="Amos Decker">
-	<title>FAQ</title>
+	<title>Contact</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="others.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Raleway:700|Roboto+Condensed&display=swap" rel="stylesheet">
+
 </head>
 
-<body style="background-color:lightgrey; margin:0px;">
-	<div class="slide-up">
-	<div id="nav-bar">
-		<img src="snow-pile3.png" style="width:100%; height:50vh; position:absolute; bottom:0px; z-index:-1;">
+<body id="body">    
+	<script>
+			// scroll to top
+			function topFunction() 
+			{
+			  document.body.scrollTop = 0; // For Safari
+			  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			} 
+	</script>
+	
+	<div id="nav-bar" class="slide-down">
+		<!-- Navigation Bar that you scroll down to-->
+			<a href="index.html#logo">
+				<img style="max-height: 20vmin; max-width: 13vw;" class=hover src="logo.png">
+			</a>
 
-		<div style="width:100%; position:absolute; left:0px; bottom:27vh; font-family:verdana; font-size:2em;" >
+			<!-- This dropdown should only be visible when the screen width is small and the other nav bar items have disappeared -->
+			<div id="nav-bar-dropdown" class="dropdown nav-link">
+			  <div id="menu-text" class="vert-horiz-center">Menu</div>
+			  <div class="dropdown-content">
+			    <a href="contact.html" class="indiv-dropdown-item">Contact</a>
+			    <a href="faq.html" class="indiv-dropdown-item">FAQ</a>
+			    <a href="registration.html" class="indiv-dropdown-item">Registration</a>
+			  </div>
+			</div> 
+
+			<!-- these are only visible when the screen is large, and as the screen gets smaller, some will not be visible -->
+			<div id="nav-bar-items">
+				<a href="index.html#logo" class="vert-horiz-center nav-link hover" id="home">Home</a>
+				<a href="contact.html" class="vert-horiz-center nav-link hover" id="contact">Contact</a>
+				<a href="faq.html" class="vert-horiz-center nav-link hover" id="faq">FAQ</a>
+				<a href="registration.html" class="vert-horiz-center nav-link hover nav-link-selected" id="registration">Registration</a>
+
+				<span id="looking-for">
+					<i>Looking for <a href="http://www.greatbrookski.com/">Great Brook Ski Touring Center Site</a></i>
+				</span>
+			</div>
+	</div>
+
+	<div id="content" class="shadow">
+		<div style="margin:2vw;">
 			<center>
-				Great Brook Bill Koch Ski League<br>
-				<div class="down-arrow">
-					<a href=#logo style="text-decoration: none; color:#080087; width:auto;">&#9661;</a>
-				</div>
+				<br>
+				<h1>Registration</h1>
+				<hr style="width:50%">
+			<br><br><br><br>
+		
+			<br><br><br><br>
 			</center>
+
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		</div>
+    </div>
+		<!-- <img class="parallax" src="front-snow.png" style="width:100%; height:100vh; z-index:-1; position:absolute; top:0px;"> -->
+	
+	<div><br><br></div>
 
-		<a href="index.html#top">
-			<img id="logo" class=hover src="logo.png" style="width:auto; height:20vh; position:absolute; top:-15vh">
+	<div id="footer" class="shadow">
+		<a class="hover" onclick="topFunction()"  style="text-decoration: none; color:#080087; font-size:5vmin;">
+			<div class="up-arrow vert-horiz-center">&#9651;</div>
 		</a>
+		&nbsp
+		<span id="created-by-amos">Created by Amos Decker</span>
 
-		<a href="index.html#logo" class="vert-horiz-center nav-link" style="position:absolute; top:-12vh; left:15vw;">Home</a>
-		<a a href="contact.html#logo" class="vert-horiz-center nav-link" style="position:absolute; top:-12vh; left:30vw;">Contact</a>
-		<a href="faq.html#logo" class="vert-horiz-center nav-link" style="position:absolute; top:-12vh; left:45vw;">FAQ</a>
-		<a href="registration.html#logo" class="vert-horiz-center nav-link nav-link-selected" style="position:absolute; top:-12vh; left:60vw;">Registration</a>	
+		<i id="looking-for-footer">&nbsp&nbspLooking for&nbsp<a href="http://www.greatbrookski.com/">Great Brook Ski Touring Center Site</a>&nbsp</i>
 
-		<span style="font-size:1em; position:absolute; right:1em; top:-12vh">
-			<i>Looking for <a href="http://www.greatbrookski.com/">Great Brook Ski Touring Center Site</a></i>
+		<span id="social-media">
+			<span style="float:right;"><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/greatbrookbkl/" class="fa fa-facebook"></a>
+			&nbsp
+			<span style="float:right;"><a target="_blank" rel="noopener noreferrer" href="mailto:GreatBrookBillKochSkiLeague-subscribe@yahoogroups.com" class="fa fa-yahoo"></a>
 		</span>
 	</div>
 
-				<!-- The main content area -->
-    <div class="shadow" style="z-index:-1; width:80vw; background-color:white; transform: translateX(10vw);">
-		<div style="height:15vh;"></div>
-		<center>
-			<h1>Registration</h1>
-			<hr style="width:50%">
-		</center>
-
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
-    <br><br>
-	</div>
 </body>
+
+
 </html>

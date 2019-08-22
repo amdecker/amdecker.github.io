@@ -24,51 +24,39 @@ html
     }
 }
 
+@media only screen and (max-width: 600px) {
+
+    #created-by-amos
+    {
+    	display:none;
+    }
+}
 @media only screen and (max-width: 500px) {
     #nav-bar-items
     {
     	display: none;
     }
-    #created-by-amos
-    {
-    	display:none;
-    }
     #nav-bar-dropdown
     {
     	display:inline-block;
+    }
+    #social-media
+    {
+    	display: none;
     }
 }
 
 
 #body
 {
-	background-color:lightgrey; margin:0px
+	background-color:lightgrey; margin:0px;;
+	font-family: Roboto;
 }
 
-.parallax
-/*
-    general properties of a parralax item
-*/
-{
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
 
-/* front image of snow*/
-#top
+h1, h2, h3
 {
-	background-image: url("front-snow.png");
-	width:100%;
-	height:100vh;
-}
-
-#nav-bar
-{
-	margin-bottom:25vmin; /* this is how much it pokes above the background parallax image */
-	position:sticky;
-	top:15vmin; /* this is how much there will be at the top when it is scrolled down */
+	font-family: Roboto Condensed;
 }
 
 
@@ -92,28 +80,6 @@ html
     justify-content: center;
 }
 
-
-.down-arrow
-{
-	animation-name: bounce-down;
-  	animation-duration: .5s;
-  	animation-iteration-count: 2;
-  	animation-delay: 1s;
-  	transition: transform .1s ease-in-out;
-}
-
-
-.down-arrow:hover
-{
-	transform: translateY(1vh);
-}
-
-@keyframes bounce-down
-{
-  0% {}
-  50% { transform: translateY(1vh);}
-  100% {}
-}
 
 .up-arrow
 {
@@ -155,6 +121,27 @@ html
 	100% {}
 }
 
+.slide-down
+{
+	animation-name: slide-down;
+	animation-duration: 1s;
+}
+
+@keyframes slide-down
+{
+	0% 
+	{
+		opacity: 0;
+		transform: translateY(-10vh);
+	}
+	50%
+	{
+		opacity: .5;
+	}
+	100% {}
+}
+
+
 .shadow
 {
 	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -164,7 +151,7 @@ html
 {
 	 width:10vw; 
 	 height:1.5em; 
-	 font-family:verdana; 
+	 font-family:Roboto Condensed; 
 	 font-size: 3vmin;
 	 border-bottom: 1px solid black;
 	 text-decoration: none;
@@ -177,6 +164,7 @@ html
 	cursor:pointer;
 	border-bottom-color:var(--logo-blue);
 	border-width: 2px;
+	color:var(--logo-blue);
 }
 
 .nav-link-selected
@@ -186,69 +174,20 @@ html
 	border-width: 2px;
 }
 
-#nav-and-content
+#nav-and-content, #content
 {
 	position: relative;
 	left:5vw;
 	z-index: 0; 
 	width:90vw; 
 	background-color:white; 
-	/*transform: translateX(10vw);*/
 }
 
-#looking-for
-{
-	font-size:2.5vmin; 
-	position:absolute; 
-	left:75vw; 
-	top:-13vmin; 
-	width:15vw
-}
-
-#home
-{
-	position:absolute; top:-12vmin; left:15vw;
-}
-
-#contact
-{
-	position:absolute; top:-12vmin; left:30vw;
-}
-
-#faq
-{
-	position:absolute; top:-12vmin; left:45vw;
-}
-
-#registration
-{
-	position:absolute; top:-12vmin; left:60vw;
-}
-
-#snow-pile
-{
-	height:50vmin; position:absolute; bottom:0px; z-index:0;
-}
-
-#logo
-{
-	/*width:auto; */
-	max-width: 13vw;
-	/*height:20vmin; */
-	max-height: 20vmin;
-	position:absolute; 
-	top:-15vmin
-}
 
 #footer
 {
 	background-color:white;
 	min-height:2vh;
-}
-
-#looking-for-footer
-{
-	float:right;
 }
 
 /* Generic characteristics of a dropdown menu */
@@ -296,10 +235,6 @@ html
 	color:var(--logo-blue);
 }
 
-#nav-bar-dropdown
-{
-	position:absolute; top:-12vmin; left:45vw;
-}
 
 #menu-text
 {
@@ -321,4 +256,40 @@ html
 	left:-20vw;
 	z-index: 2;*/
 
+}
+
+
+/* Social Media Icon */
+.fa 
+{
+  padding: 1vmin;
+  font-size: 1vmin;
+  width: 2.5vmin;
+  height: 2.5vmin;
+  text-align: center;
+  text-decoration: none;
+}
+
+.fa:hover 
+{
+  opacity: 0.7;
+}
+
+/* Facebook */
+.fa-facebook 
+{
+	background: #3B5998;
+	color: white;
+}
+
+/* Yahoo */
+.fa-yahoo 
+{
+	background: #430297;
+	color: white;
+}
+
+#looking-for-footer
+{
+	float:right;
 }

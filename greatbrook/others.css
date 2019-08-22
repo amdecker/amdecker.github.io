@@ -1,0 +1,59 @@
+/* 
+author: Amos Decker 
+
+styles specific to Contact, FAQ, and Registration pages (everything but index)
+*/
+
+/* for the more formal navigation bars on the other pages */
+#nav-bar
+{
+	background-color:white; 
+	position:sticky; 
+	top:0px; 
+	border-bottom: 1px solid black; 
+	z-index: 1; 
+	height:10vmin;
+}
+
+#home
+{
+	position:absolute; left:15vw; top:2vmin;
+}
+
+#contact
+{
+	position:absolute; left:30vw; top:2vmin;
+}
+
+#faq
+{
+	position:absolute; left:45vw; top:2vmin;
+}
+
+#registration
+{
+	position:absolute; left:60vw; top:2vmin;
+}
+
+
+#logo
+{
+	max-width: 13vw;
+	max-height: 20vmin;
+	position:absolute; 
+	top:-15vmin
+}
+
+#looking-for
+{
+	font-size:2.5vmin; 
+	position:absolute; 
+	left:75vw; 
+	top:1vmin;
+	width:15vw
+}
+
+#nav-bar-dropdown
+{
+	position:absolute; top:2vmin; left:45vw; /*because menu is 10vw wide, placing it at 45vw puts it in the center*/
+}
