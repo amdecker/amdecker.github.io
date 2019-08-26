@@ -32,9 +32,14 @@ h1, h2, h3
 /*
     when hovering over a something like the logo, it increases in size a little bit
 */
+.hover
+{
+	transition: transform .1s;
+}
 .hover:hover
 {
     transform: scale(1.02, 1.02);
+    transition: transform .1s;
     cursor: pointer;
 }
 
@@ -268,30 +273,50 @@ h1, h2, h3
 	width:42vw;
 	height:35vmin; 
 	background-color:white; 
-	transition: border .3s linear;
-	border:1px solid white;
 	font-size:2.5vmin;
 }
 
-.box:hover
+/*.box:hover
 {
 	transition: border .75s linear;
 	border:1px solid black
 }
-
+*/
 .box-image
 {
 	background-color:lightgrey; 
 	background-position: center; 
 	background-repeat: no-repeat;
 	background-size: cover; 
+	/*transition: transform .1s;*/
+	transition: box-shadow 1s;
+
+}
+
+
+.box-image:hover
+{
+	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+	transition: box-shadow .5s;
+	/*transition: transform .5s;*/
+	/*transform: scale(1.0, 1.0);*/
+
+
 }
 
 .box-divider
 {
-	height:35vh; width:2vw; background-color:black;
+	height:35vh; width:2vw; 
+	/*background-color:black;*/
 }
 
+
+#welcome-space
+{
+	height:10vmin;
+	/*background-color:black;*/
+}
 
 @media only screen and (max-width: 1000px) {
     #looking-for {
@@ -337,6 +362,10 @@ h1, h2, h3
     .box-divider
     {
     	/*height:1vh;*/
+    	display: none;
+    }
+    #welcome-space
+    {
     	display: none;
     }
 }
