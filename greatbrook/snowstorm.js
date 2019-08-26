@@ -12,17 +12,20 @@ var height = canvas.height;
 // get the context - the 2d plane on which you can draw
 var ctx = canvas.getContext("2d");
 
-ctx.fillStyle = 'white';
 var horizDist = .15
 var vertDist = .3
-var radiusAdj = .3
+var radiusAdj = .8 // the bigger this is the bigger the flakes will be 
 
 var flakes = []
+
+var prevScrollPos = 0
 
 function addSnow(numFlakes)
 /* adds a certain number of flakes to the screen */
 {
     clearCanvas()
+    
+    ctx.fillStyle = 'white'
 
     var radius = Math.random() + radiusAdj
     var centerX = Math.random() * width
@@ -38,12 +41,12 @@ function addSnow(numFlakes)
 function moveFlakes()
 /* removes the snowflakes that have gotten to the bottom */
 {
+    var scroll = window.scrollY // gets how far from the top of window the scroll bar is
     clearCanvas()
     var newFlakes = []
     for(var i = 0; i < flakes.length; i++)
     {
-      flakes[i][1] += vertDist // how much to move vertically
-
+      flakes[i][1] += vertDist + (scroll - prevScrollPos) // how much to move vertically. It adjusts for scroll position so if you scroll down the flakes will appear to be in the same spot relative to the parallax
 
       var moveRight = (flakes[i][2] > 0.5 + (radiusAdj / 2)); // if the radius is above a certain size, move it to the right
       if(moveRight)
@@ -60,12 +63,14 @@ function moveFlakes()
       {
         newFlakes.push(flakes[i])
       }
+      
+      ctx.fillStyle = 'white'
 
       ctx.beginPath()
       ctx.arc(flakes[i][0], flakes[i][1], flakes[i][2], 0, 2 * Math.PI)
       ctx.fill()
     }
-
+    prevScrollPos = scroll
     flakes = newFlakes
 
 }
