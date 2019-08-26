@@ -54,6 +54,12 @@ h1, h2, h3
     justify-content: center;
 }
 
+.vert-center
+{
+	display:flex;
+	align-items: center;
+}
+
 
 .up-arrow
 {
