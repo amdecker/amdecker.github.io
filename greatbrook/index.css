@@ -15,7 +15,7 @@ styles specific to the index page
     background-size: cover; 
 }
 
-/* front image of snow*/
+/* front image of kids*/
 #snow
 {
 	background-image: url("front-image.jpg");
@@ -75,7 +75,10 @@ styles specific to the index page
 
 #snow-pile
 {
-	height:50vmin; position:absolute; bottom:0px; z-index:0;
+	height:50vmin; position:absolute;
+	 /*bottom:0px;*/
+	  z-index:0;
+	  top:-15vmin;
 }
 
 #logo
@@ -83,7 +86,7 @@ styles specific to the index page
 	max-width: 13vw;
 	max-height: 20vmin;
 	position:absolute; 
-	top:-15vmin
+	top:-15vmin;
 }
 
 #looking-for
