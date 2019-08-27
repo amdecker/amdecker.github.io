@@ -20,9 +20,32 @@ var flakes = []
 
 var prevScrollPos = 0
 
+var vis = (function(){
+    var stateKey, eventKey, keys = {
+        hidden: "visibilitychange",
+        webkitHidden: "webkitvisibilitychange",
+        mozHidden: "mozvisibilitychange",
+        msHidden: "msvisibilitychange"
+    };
+    for (stateKey in keys) {
+        if (stateKey in document) {
+            eventKey = keys[stateKey];
+            break;
+        }
+    }
+    return function(c) {
+        if (c) document.addEventListener(eventKey, c);
+        return !document[stateKey];
+    }
+})();
+
 function addSnow(numFlakes)
 /* adds a certain number of flakes to the screen */
 {
+    if (!vis())
+    {
+      return;
+    }
     clearCanvas()
     
     ctx.fillStyle = 'white'
@@ -45,6 +68,10 @@ function addSnow(numFlakes)
 function adjustScroll()
 /* changes position of flakes to account for scrolling up/down to maintain parallax effect */
 {
+    if(!vis())
+    {
+      return;
+    }
     var scroll = window.pageYOffset // gets how far from the top of window the scroll bar is
     clearCanvas()
     var newFlakes = []
@@ -72,6 +99,10 @@ function adjustScroll()
 function moveFlakes()
 /* removes the snowflakes that have gotten to the bottom */
 {
+    if(!vis())
+    {
+      return;
+    }
     clearCanvas()
     var newFlakes = []
     for(var i = 0; i < flakes.length; i++)
@@ -109,6 +140,9 @@ function clearCanvas()
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
+
+
+
 
 setInterval(addSnow, 1001, 5);
 setInterval(moveFlakes, 15, false);
