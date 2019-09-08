@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
+---
+layout: default
+---
 
-<h2>Redirecting...</h2>
-  
-<script>
-  location.replace("https://amdecker.github.io/copy")
-</script>
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  {% include post.html post=post content=post.content %}
+{% endfor %}
 
-</body>
-</html> 
+{% if paginator.total_pages > 1 %}
+    {% include pagination.html maxPages=5 %}
+{% endif %}
