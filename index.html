@@ -1,12 +1,14 @@
----
-layout: default
----
+<br><br>
+<center>
+	hello. check out my <a href=amdecker.github.io/glob>blog</a>
+	<br>
+	Other projects: 
+	<ul>
+		<li><a href=https://cchsassassins.com>Backend of CCHS Assassins Website</a></li>
+		<li><a href="https://amdecker.github.io/copy">Copy Google Drive Folders and contents</a></li>
+		<li><a href="https://amdecker.github.io/nuclear-timeline">USSR Nuclear Timeline (for 2018-19 independent study)</a></li>
+		<li>The Great Brook Bill Koch Website</li>
+	</ul>
 
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
-  {% include post.html post=post content=post.content %}
-{% endfor %}
 
-{% if paginator.total_pages > 1 %}
-    {% include pagination.html maxPages=5 %}
-{% endif %}
+</center>
