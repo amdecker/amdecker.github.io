@@ -161,6 +161,7 @@ h1, h2, h3
 	z-index: 0; 
 	width:90vw; 
 	background-color:white; 
+	min-height:90vh;
 }
 
 
@@ -277,9 +278,9 @@ h1, h2, h3
 .box
 {
 	width:42vw;
-	height:35vmin; 
+	height:45vmin; 
 	font-size:2.5vmin;
-	margin:1vmin;
+	/*margin-top:vmin;*/
 }
 
 /*.box:hover
@@ -307,10 +308,14 @@ h1, h2, h3
 
 .box-divider
 {
-	height:35vh; width:2vw; 
+	height:45vh; width:2vw; 
 	/*background-color:black;*/
 }
 
+.double-space
+{
+	line-height: 2;
+}
 
 #welcome-space
 {
