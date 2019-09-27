@@ -15,13 +15,21 @@ styles specific to the index page
     background-size: cover; 
 }
 
+
 /* front image of kids*/
 #snow
 {
 	background-image: url("gb-images/front-image.jpg");
-	/*width:100%; height:100vh; */
+	width:100%; 
+	height:auto;
 }
 
+@media only screen and (max-device-width: 1366px) {
+	/* parallax doesn't work on some mobile devices */
+  .parallax {
+    background-attachment: scroll;
+  }
+}
 
 /* for the snow pile nav bar on front page */
 #nav-bar
@@ -75,10 +83,10 @@ styles specific to the index page
 
 #snow-pile
 {
-	height:50vmin; position:absolute;
-	 /*bottom:0px;*/
-	  z-index:0;
-	  top:-50vmin;
+	height:50vmin; 
+	position:absolute;
+	z-index:0;
+	top:-50vmin;
 }
 
 #logo

@@ -7,6 +7,9 @@ author: Amos Decker;
 	--logo-blue: #080087; /*this blue should sort of match the dark blue of the logo*/
 }
 
+body, html {
+  height: 100%;
+} 
 
 html
 {
@@ -328,7 +331,8 @@ h1, h2, h3
     }
 }
 @media only screen and (max-width: 850px) {
-    #home {
+    #home
+    {
         display: none;
     }
 }

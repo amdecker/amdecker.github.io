@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="main.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -19,12 +19,15 @@
 
 <body id="body">
 	
-	<div class="parallax" style="width:100%; height:100vh;">
-		<canvas class="parallax" id="snow" style="position:absolute; top:0px; z-index:-1"></canvas>
+	<div style="width:100%; height:100vh;">
+		<canvas id="snow" class="parallax" style="position:absolute; top:0px; z-index:-1"></canvas>
+		<!-- <img  id="snow" class="parallax" src="gb-images/front-image.jpg" style="z-index:-4; position: absolute; top:0px"> -->
+		<!-- <img  id="snow" class="parallax" style="z-index:-4; position: absolute; top:0px"> -->
+
 	</div>
 	
     <div id="nav-and-content" class="shadow">
-		<div id="nav-bar" class="slide-up" ><!--style="margin-bottom:25vmin;"-->
+		<div id="nav-bar" class="slide-up" >
 			<div style="position:relative; left:-5vw;">
 				<img alt="snow pile navigation bar" id="snow-pile" src="gb-images/snow-pile3.png">
 				<script>
