@@ -172,6 +172,8 @@ h1, h2, h3
 {
 	background-color:white;
 	min-height:2vh;
+	font-size:2.5vmin;
+
 }
 
 /* Generic characteristics of a dropdown menu */
@@ -282,6 +284,7 @@ h1, h2, h3
 	width:42vw;
 	height:45vmin; 
 	font-size:2.5vmin;
+	/*font-size: 1pt;*/
 	/*margin-top:vmin;*/
 }
 
@@ -325,6 +328,29 @@ h1, h2, h3
 	/*background-color:black;*/
 }
 
+@media only screen and (max-device-width: 850px) {
+	/* The following ones put the text and pictures on the main screen on top of each other rather than text and image in same row */
+	.box
+	{
+		width:100%;
+		float:none;
+		/*margin-bottom:1vh;*/
+	}
+	.box:hover
+	{
+		border-color:white;
+	}
+	.box-divider
+	{
+		/*height:1vh;*/
+		display: none;
+	}
+	#welcome-space
+	{
+		display: none;
+	}
+}
+
 @media only screen and (max-width: 1000px) {
     #looking-for {
         display: none;
@@ -335,6 +361,27 @@ h1, h2, h3
     {
         display: none;
     }
+    /* The following ones put the text and pictures on the main screen on top of each other rather than text and image in same row */
+    .box
+    {
+    	width:100%;
+    	float:none;
+    	/*margin-bottom:1vh;*/
+    }
+    .box:hover
+    {
+    	border-color:white;
+    }
+    .box-divider
+    {
+    	/*height:1vh;*/
+    	display: none;
+    }
+    #welcome-space
+    {
+    	display: none;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -357,23 +404,5 @@ h1, h2, h3
     {
     	display: none;
     }
-    .box
-    {
-    	width:100%;
-    	float:none;
-    	/*margin-bottom:1vh;*/
-    }
-    .box:hover
-    {
-    	border-color:white;
-    }
-    .box-divider
-    {
-    	/*height:1vh;*/
-    	display: none;
-    }
-    #welcome-space
-    {
-    	display: none;
-    }
+
 }
