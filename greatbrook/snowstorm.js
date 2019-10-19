@@ -2,6 +2,8 @@
 author: Amos Decker
 
 creates a snowstorm effect using javascript canvas
+
+created Summer/Fall 2019
 **/
 
 // get the canvas element by ID:
@@ -21,6 +23,7 @@ var flakes = []
 var prevScrollPos = 0
 
 var vis = (function(){
+  /* Check if canvas is visible to the user */
     var stateKey, eventKey, keys = {
         hidden: "visibilitychange",
         webkitHidden: "webkitvisibilitychange",
@@ -39,10 +42,11 @@ var vis = (function(){
     }
 })();
 
+
 function addSnow(numFlakes)
 /* adds a certain number of flakes to the screen */
 {
-    if (!vis())
+    if (!vis()) // only add flakes if the canvas is visible to the user
     {
       return;
     }
@@ -68,7 +72,7 @@ function addSnow(numFlakes)
 function adjustScroll()
 /* changes position of flakes to account for scrolling up/down to maintain parallax effect */
 {
-    if(!vis())
+    if(!vis()) // only adjust the flakes if the canvas is visible to the user
     {
       return;
     }
@@ -77,7 +81,7 @@ function adjustScroll()
     var newFlakes = []
     for(var i = 0; i < flakes.length; i++)
     {
-      flakes[i][1] += scroll - prevScrollPos // how much to move vertically. It adjusts for scroll position so if you scroll down the flakes will appear to be in the same spot relative to the parallax
+      flakes[i][1] += scroll - prevScrollPos // how much to move vertically. It adjusts for scroll position so if you scroll down the flakes will appear to be in the same spot relative to the image. This maintains the parallax effect. Doesn't work on all browsers
       
 
       if(flakes[i][1] < height && flakes[i][0] > 0 && flakes[i][0] < width)
@@ -97,9 +101,9 @@ function adjustScroll()
 
 
 function moveFlakes()
-/* removes the snowflakes that have gotten to the bottom */
+/*  moves flakes horizontally and vertically and removes the snowflakes that have gotten to the bottom */
 {
-    if(!vis())
+    if(!vis()) // only move the flakes if the canvas is visible to the user
     {
       return;
     }
@@ -136,12 +140,9 @@ function moveFlakes()
 
 
 function clearCanvas()
-/* deletes everything from the canvas */
 {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 }
-
-
 
 
 setInterval(addSnow, 1001, 5);

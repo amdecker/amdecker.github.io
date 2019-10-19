@@ -16,21 +16,16 @@ html
 	scroll-behavior: smooth;
 }
 
-
-
-
 #body
 {
 	background-color:lightgrey; margin:0px;;
 	font-family: Roboto;
 }
 
-
 h1, h2, h3
 {
 	font-family: Roboto Condensed;
 }
-
 
 /*
     when hovering over a something like the logo, it increases in size a little bit
@@ -62,7 +57,6 @@ h1, h2, h3
 	display:flex;
 	align-items: center;
 }
-
 
 .up-arrow
 {
@@ -124,7 +118,6 @@ h1, h2, h3
 	100% {}
 }
 
-
 .shadow
 {
 	box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -167,7 +160,6 @@ h1, h2, h3
 	min-height:90vh;
 }
 
-
 #footer
 {
 	background-color:white;
@@ -180,7 +172,7 @@ h1, h2, h3
 .dropdown 
 {
   position: relative;
-  display: none;/*inline-block*/
+  display: none;
 }
 
 /* Generic characteristics of a dropdown menu */
@@ -212,7 +204,6 @@ h1, h2, h3
 	padding:10px;
 	text-decoration: none;
 	color:black;
-	/*border-bottom: 1px solid black;*/
 }
 
 .indiv-dropdown-item:hover
@@ -220,7 +211,6 @@ h1, h2, h3
 	background-color:#f0f0f0;
 	color:var(--logo-blue);
 }
-
 
 #menu-text
 {
@@ -233,15 +223,6 @@ h1, h2, h3
 #menu-text:hover
 {
 	font-weight: bold;
-	/*display: none;*/
-/*	background-color:black;
-	color:white;
-	width:50vw;
-	height:5vh;
-	position:absolute;
-	left:-20vw;
-	z-index: 2;*/
-
 }
 
 
@@ -284,24 +265,14 @@ h1, h2, h3
 	width:42vw;
 	height:45vmin; 
 	font-size:2.5vmin;
-	/*font-size: 1pt;*/
-	/*margin-top:vmin;*/
 }
 
-/*.box:hover
-{
-	transition: border .75s linear;
-	border:1px solid black
-}
-*/
 .box-image
 {
 	background-position: center; 
 	background-repeat: no-repeat;
 	background-size: cover; 
-	/*transition: transform .1s;*/
 	transition: box-shadow 1s;
-
 }
 
 
@@ -314,7 +285,6 @@ h1, h2, h3
 .box-divider
 {
 	height:45vh; width:2vw; 
-	/*background-color:black;*/
 }
 
 .double-space
@@ -325,7 +295,6 @@ h1, h2, h3
 #welcome-space
 {
 	height:10vmin;
-	/*background-color:black;*/
 }
 
 @media only screen and (max-device-width: 850px) {
@@ -334,7 +303,6 @@ h1, h2, h3
 	{
 		width:100%;
 		float:none;
-		/*margin-bottom:1vh;*/
 	}
 	.box:hover
 	{
@@ -342,7 +310,6 @@ h1, h2, h3
 	}
 	.box-divider
 	{
-		/*height:1vh;*/
 		display: none;
 	}
 	#welcome-space
@@ -366,7 +333,6 @@ h1, h2, h3
     {
     	width:100%;
     	float:none;
-    	/*margin-bottom:1vh;*/
     }
     .box:hover
     {
@@ -374,14 +340,12 @@ h1, h2, h3
     }
     .box-divider
     {
-    	/*height:1vh;*/
     	display: none;
     }
     #welcome-space
     {
     	display: none;
     }
-
 }
 
 @media only screen and (max-width: 600px) {

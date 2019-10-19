@@ -1,7 +1,7 @@
 /* 
 author: Amos Decker; 
 
-styles specific to the index page
+styles specific to the index.html page
 */
 
 .parallax
@@ -25,7 +25,7 @@ styles specific to the index page
 }
 
 @media only screen and (max-device-width: 1366px) {
-	/* parallax doesn't work on some mobile devices */
+	/* parallax doesn't work on some mobile devices, so turn it off for them */
   .parallax {
     background-attachment: scroll;
   }
@@ -47,7 +47,6 @@ styles specific to the index page
   	animation-delay: 1s;
   	transition: transform .1s ease-in-out;
 }
-
 
 .down-arrow:hover
 {
